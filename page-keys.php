@@ -1,11 +1,11 @@
 <?php # -*- coding: utf-8 -*-
 /**
  * Plugin Name: Page Keys
- * Plugin URI:  https://github.com/tfrommen/page-keys
+ * Plugin URI:  https://wordpress.org/plugins/page-keys/
  * Description: Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.
  * Author:      Thorsten Frommen
- * Author URI:  http://ipm-frommen.de
- * Version:     1.0
+ * Author URI:  http://ipm-frommen.de/wordpress
+ * Version:     1.1
  * Text Domain: page-keys
  * Domain Path: /languages
  * License:     GPLv3
