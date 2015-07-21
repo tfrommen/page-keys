@@ -66,3 +66,7 @@ add_filter( 'page_keys_show_admin_notice', '__return_false' );
 If you have a feature request, or if you have developed the feature already, please feel free to use the Issues and/or Pull Requests section.
 
 Of course, you can also provide me with translations if you would like to use the plugin in another not yet included language.
+
+## Changelog
+
+[Changelog](CHANGELOG.md)
