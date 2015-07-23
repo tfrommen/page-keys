@@ -1,4 +1,4 @@
-/* global tfPageKeysData */
+/* global jQuery, tfPageKeysData */
 ;( function( Plugin, $, pluginData ) {
 	"use strict";
 

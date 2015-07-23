@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3
+- Fix some PHPDoc blocks.
+- Improve some namespace imports.
+- Compatible up to WordPress 4.2.3.
+
 ## 1.2
 - Complete refactor.
 - Grunt integration.
