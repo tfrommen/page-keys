@@ -1,8 +1,10 @@
 {
 	"name": "page-keys",
+	"version": "1.3.1",
 	"description": "Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.",
+	"bugs": "https://github.com/tfrommen/page-keys/issues",
+	"license": "GPL-3.0",
 	"author": "Thorsten Frommen",
-	"version": "1.2.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tfrommen/page-keys"
