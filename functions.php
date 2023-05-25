@@ -14,7 +14,7 @@ if ( ! function_exists( 'get_page_by_key' ) ) :
 	function get_page_by_key( $key ) {
 
 		$pages = Option::get();
-		if ( isset( $pages[ $key ][ 'page_id' ] ) ) {
+		if ( ! empty( $pages[ $key ][ 'page_id' ] ) ) {
 			return get_post( $pages[ $key ][ 'page_id' ] );
 		}
 
