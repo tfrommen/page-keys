@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2
+- Fix `get_page_by_key()` incorrectly returning current post.
+- Compatible up to WordPress 6.2.2.
+
 ## 1.3.1
 - Escape translated strings.
 - Improve namespace imports.
