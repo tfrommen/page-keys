@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.3
+- Fix warning message due to loading text domain too early.
+- Compatible up to WordPress 6.8.1.
+
 ## 1.3.2
 - Fix `get_page_by_key()` incorrectly returning current post.
 - Compatible up to WordPress 6.2.2.

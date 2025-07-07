@@ -43,7 +43,8 @@ class Plugin {
 			);
 
 			$text_domain = new Models\TextDomain( $this->file );
-			$text_domain->load();
+			$text_domain_controller = new Controllers\TextDomain( $text_domain );
+			$text_domain_controller->initialize();
 
 			$settings = new Models\Settings();
 			$settings_page = new Models\SettingsPage( $nonces );

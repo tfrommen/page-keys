@@ -5,7 +5,7 @@
  * Description: Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.
  * Author:      Thorsten Frommen
  * Author URI:  https://tfrommen.de
- * Version:     1.3.2
+ * Version:     1.3.3
  * Text Domain: page-keys
  * Domain Path: /languages
  * License:     GPLv3

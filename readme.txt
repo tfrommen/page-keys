@@ -2,7 +2,7 @@
 Contributors: tfrommen
 Tags: page, pages, keys
 Requires at least: 3.5.0
-Tested up to: 6.2.2
+Tested up to: 6.8.1
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -88,6 +88,10 @@ This plugin requires PHP 5.3.
 1. **Settings page** - Here you can manage your page keys (i.e., add, edit, delete).
 
 == Changelog ==
+
+= 1.3.3 =
+* Fix warning message due to loading text domain too early.
+* Compatible up to WordPress 6.8.1.
 
 = 1.3.2 =
 * Fix `get_page_by_key()` incorrectly returning current post.
