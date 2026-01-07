@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models\SettingsErrors;
 
@@ -21,9 +21,11 @@ class DuplicatePageKey extends SettingsError {
 
 		$this->set_code( 'duplicate-page-key' );
 
+		/* translators: 1: page key, 2: page ID. */
 		$message = _x(
-			"Cannot map page key '%s' to page ID '%d'! Page key already set.",
-			'Settings error message, %s=page key, %d=page ID', 'page-keys'
+			'Cannot map page key "%1$s" to page ID %2$d! Page key already set.',
+			'Settings error message',
+			'page-keys'
 		);
 		$message = sprintf( $message, $page_key, $page_id );
 		$this->set_message( $message );

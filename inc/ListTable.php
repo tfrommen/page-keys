@@ -1,8 +1,7 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys;
 
-use tf\PageKeys\Models;
 use tf\PageKeys\Models\SettingsPage as PageModel;
 
 require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
@@ -139,6 +138,8 @@ class ListTable extends \WP_List_Table {
 	/**
 	 * Sort the items according to the values given in the $_REQUEST superglobal.
 	 *
+	 * @phpcs:disable WordPress.Security.NonceVerification.Recommended -- No nonce verification needed.
+	 *
 	 * @param array $sortable_columns Sortable columns.
 	 *
 	 * @return void
@@ -147,14 +148,14 @@ class ListTable extends \WP_List_Table {
 
 		if (
 			empty( $_REQUEST[ 'orderby' ] )
-			|| ! array_key_exists( $_REQUEST[ 'orderby' ], $sortable_columns )
+			|| ! array_key_exists( sanitize_text_field( wp_unslash( $_REQUEST[ 'orderby' ] ) ), $sortable_columns )
 		) {
 			return;
 		}
 
 		if (
 			isset( $_REQUEST[ 'order' ] )
-			&& strtolower( $_REQUEST[ 'order' ] ) === 'desc'
+			&& strtoupper( sanitize_text_field( wp_unslash( $_REQUEST[ 'order' ] ) ) ) === 'DESC'
 		) {
 			krsort( $this->items );
 		} else {
@@ -170,7 +171,7 @@ class ListTable extends \WP_List_Table {
 	private function maybe_add_item() {
 
 		if (
-			filter_input( INPUT_GET, 'action' ) === 'add'
+			filter_input( INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS ) === 'add'
 			&& $this->page->current_user_can( 'edit' )
 		) {
 			$this->items[ ] = $this->get_empty_item();
@@ -214,7 +215,7 @@ class ListTable extends \WP_List_Table {
 	 */
 	public function single_row( $item ) {
 
-		$id = time() . mt_rand();
+		$id = time() . wp_rand();
 		$id = md5( $id );
 		$this->current_row_id = substr( $id, 0, 15 );
 
@@ -257,14 +258,14 @@ class ListTable extends \WP_List_Table {
 			'<input type="text" name="%1$s[%2$s][page_key]" value="%3$s" class="page-key regular-text" data-id="%2$s">',
 			$this->name_prefix,
 			$this->current_row_id,
-			$page_key
+			esc_attr( $page_key )
 		);
 
 		$actions = array();
 		if ( $this->page->current_user_can( 'edit' ) ) {
-			$text = esc_html__( 'Edit' );
+			$text = esc_html__( 'Edit', 'page-keys' );
 			$url = get_permalink();
-			$title = esc_attr__( 'Edit this item' );
+			$title = esc_attr__( 'Edit this item', 'page-keys' );
 			$actions[ 'edit hide-if-no-js' ] = sprintf(
 				'<a class="edit" title="%3$s" href="%2$s">%1$s</a>',
 				$text,
@@ -272,9 +273,9 @@ class ListTable extends \WP_List_Table {
 				$title
 			);
 
-			$text = esc_html__( 'Delete Permanently' );
-			$url = $this->page->get_delete_page_key_url( $page_key );
-			$title = esc_attr__( 'Delete this item permanently' );
+			$text = esc_html__( 'Delete Permanently', 'page-keys' );
+			$url = esc_url( $this->page->get_delete_page_key_url( $page_key ) );
+			$title = esc_attr__( 'Delete this item permanently', 'page-keys' );
 			$actions[ 'delete' ] = sprintf(
 				'<a class="submitdelete submitdelete-%4$s" title="%3$s" href="%2$s" data-id="%4$s">%1$s</a>',
 				$text,
@@ -307,11 +308,11 @@ class ListTable extends \WP_List_Table {
 
 		return wp_dropdown_pages(
 			array(
-				'name'             => $this->name_prefix . '[' . $this->current_row_id . '][page_id]',
-				'id'               => 'page-id-' . $this->current_row_id,
+				'name'             => esc_attr( $this->name_prefix . '[' . $this->current_row_id . '][page_id]' ),
+				'id'               => esc_attr( 'page-id-' . $this->current_row_id ),
 				'show_option_none' => ' ',
 				'option_non_value' => '',
-				'selected'         => $selected,
+				'selected'         => esc_attr( $selected ),
 				'echo'             => FALSE,
 			)
 		);

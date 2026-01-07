@@ -1,6 +1,10 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\Autoloader;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 foreach ( array( 'Autoloader', 'Rule', 'NamespaceRule' ) as $name ) {
 	$fqn = __NAMESPACE__ . '\\' . $name;

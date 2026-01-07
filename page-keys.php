@@ -1,11 +1,11 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 /**
  * Plugin Name: Page Keys
  * Plugin URI:  https://wordpress.org/plugins/page-keys/
  * Description: Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.
  * Author:      Thorsten Frommen
  * Author URI:  https://tfrommen.de
- * Version:     1.3.3
+ * Version:     1.3.4
  * Text Domain: page-keys
  * Domain Path: /languages
  * License:     GPLv3
@@ -15,8 +15,8 @@ namespace tf\PageKeys;
 
 use tf\Autoloader;
 
-if ( ! function_exists( 'add_action' ) ) {
-	return;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 require_once __DIR__ . '/inc/Autoloader/bootstrap.php';

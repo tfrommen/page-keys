@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
 
@@ -110,7 +110,8 @@ class Nonce {
 				return FALSE;
 			}
 
-			$nonce = $_REQUEST[ $this->name ];
+			/* phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification further down. */
+			$nonce = sanitize_key( $_REQUEST[ $this->name ] );
 		}
 
 		$action = $action === '' ? $this->action : $action;

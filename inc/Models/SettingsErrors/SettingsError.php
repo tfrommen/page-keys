@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models\SettingsErrors;
 
@@ -78,7 +78,7 @@ abstract class SettingsError {
 			'error',
 			'updated',
 		);
-		if ( ! in_array( $type, $valid_types ) ) {
+		if ( ! in_array( $type, $valid_types, TRUE ) ) {
 			return FALSE;
 		}
 

@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
 
@@ -39,7 +39,7 @@ class Page {
 		foreach ( $pages as $page_key => $page ) {
 			if (
 				isset( $page[ 'page_id' ] )
-				&& $page[ 'page_id' ] == $post_id
+				&& absint( $page[ 'page_id' ] ) === absint( $post_id )
 			) {
 				$pages[ $page_key ][ 'page_id' ] = '';
 				$update = TRUE;

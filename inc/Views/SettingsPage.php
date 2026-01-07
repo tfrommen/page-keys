@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Views;
 
@@ -31,8 +31,6 @@ class SettingsPage {
 	public function __construct( Model $model ) {
 
 		$this->model = $model;
-
-		$this->title = esc_html_x( 'Page Keys', 'Settings page title', 'page-keys' );
 	}
 
 	/**
@@ -44,9 +42,10 @@ class SettingsPage {
 	 */
 	public function add() {
 
+		$title = esc_html_x( 'Page Keys', 'Settings page title', 'page-keys' );
 		$menu_title = esc_html_x( 'Page Keys', 'Menu item title', 'page-keys' );
 		add_pages_page(
-			$this->title,
+			$title,
 			$menu_title,
 			$this->model->get_capability( 'list' ),
 			$this->model->get_slug(),
@@ -70,15 +69,15 @@ class SettingsPage {
 		?>
 		<div class="wrap">
 			<h2>
-				<?php echo $this->title; ?>
+				<?php echo esc_html_x( 'Page Keys', 'Settings page title', 'page-keys' ); ?>
 				<?php if ( $current_user_can_edit ) : ?>
-					<a href="<?php echo $this->model->get_add_page_key_url(); ?>" class="add-new-h2">
-						<?php esc_html_e( 'Add New' ); ?>
+					<a href="<?php echo esc_url( $this->model->get_add_page_key_url() ); ?>" class="add-new-h2">
+						<?php esc_html_e( 'Add New', 'page-keys' ); ?>
 					</a>
 				<?php endif; ?>
 			</h2>
 			<?php settings_errors(); ?>
-			<form action="<?php echo admin_url( 'options.php' ); ?>" method="post" id="page-keys-form">
+			<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>" method="post" id="page-keys-form">
 				<?php settings_fields( $option_name ); ?>
 				<?php $list_table->display(); ?>
 
@@ -88,9 +87,9 @@ class SettingsPage {
 						<p>
 							<?php
 							printf(
-								esc_html_x(
-									'%sWarning%s: Duplicate page keys found!',
-									'%s=<strong> and </strong>',
+								/* translators: 1: <strong>, 2: </strong>. */
+								esc_html__(
+									'%1$sWarning%2$s: Duplicate page keys found!',
 									'page-keys'
 								),
 								'<strong>',

@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models\SettingsErrors;
 
@@ -20,7 +20,8 @@ class PageKeyDeleted extends SettingsError {
 
 		$this->set_code( 'page-key-deleted' );
 
-		$message = _x( "Page key '%s' permanently deleted.", 'Settings error message, %s=page key', 'page-keys' );
+		/* translators: 1: page key. */
+		$message = _x( 'Page key "%s" permanently deleted.', 'Settings error message', 'page-keys' );
 		$message = sprintf( $message, $page_key );
 		$this->set_message( $message );
 

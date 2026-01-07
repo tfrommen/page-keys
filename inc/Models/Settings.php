@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
 
@@ -45,6 +45,7 @@ class Settings {
 
 				$page_key = $page[ 'page_key' ];
 			}
+			$page_key = sanitize_key( $page_key );
 
 			$page_id = '';
 			if ( isset( $page[ 'page_id' ] ) ) {

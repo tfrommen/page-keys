@@ -1,6 +1,10 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 use tf\PageKeys\Models\Option;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if ( ! function_exists( 'get_page_by_key' ) ) :
 

@@ -1,9 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
-
-use tf\PageKeys\Controllers;
-use tf\PageKeys\Views;
 
 /**
  * Class SettingsPage
@@ -121,7 +118,7 @@ class SettingsPage {
 			'add',
 			'delete',
 		);
-		if ( ! in_array( $action, $valid_actions ) ) {
+		if ( ! in_array( $action, $valid_actions, TRUE ) ) {
 			return '';
 		}
 

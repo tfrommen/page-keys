@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
 
@@ -88,7 +88,7 @@ class PageKeys {
 		$data = (object) compact( 'errors' );
 
 		if ( $response ) {
-			$data->id = filter_input( INPUT_POST, 'id' );
+			$data->id = filter_input( INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS );
 			wp_send_json_success( $data );
 		}
 
@@ -97,6 +97,8 @@ class PageKeys {
 
 	/**
 	 * Delete the page key given in the $_REQUEST superglobal.
+	 *
+	 * @phpcs:disable WordPress.Security.NonceVerification.Recommended -- Nonce verification via Nonce::is_valid().
 	 *
 	 * @return bool
 	 */
@@ -123,7 +125,7 @@ class PageKeys {
 			return FALSE;
 		}
 
-		$page_key = urldecode( $_REQUEST[ 'page_key' ] );
+		$page_key = sanitize_key( $_REQUEST[ 'page_key' ] );
 		$pages = Option::get();
 		if ( array_key_exists( $page_key, $pages ) ) {
 			unset( $pages[ $page_key ] );

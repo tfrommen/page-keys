@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Views;
 
@@ -59,8 +59,9 @@ class AdminNotice {
 			return;
 		}
 
-		$error_message = esc_html_x(
-			'%sImportant:%s Not all registered page keys have a page assigned.', '%s = <strong> and </strong>',
+		/* translators: 1: <strong>, 2: </strong>. */
+		$error_message = esc_html__(
+			'%1$sImportant:%2$s Not all registered page keys have a page assigned.',
 			'page-keys'
 		);
 
@@ -68,7 +69,7 @@ class AdminNotice {
 		?>
 		<div class="error">
 			<p>
-				<?php printf( $error_message, '<strong>', '</strong>' ); ?>
+				<?php echo wp_kses_post( sprintf( $error_message, '<strong>', '</strong>' ) ); ?>
 				<a href="<?php echo esc_url( $link_url ); ?>">
 					<?php echo esc_html_x( 'Assign pages now.', 'Link text in admin notice', 'page-keys' ); ?>
 				</a>

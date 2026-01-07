@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models\SettingsErrors;
 
@@ -18,7 +18,7 @@ class NoPermissionToEdit extends SettingsError {
 
 		$this->set_code( 'no-permission-to-edit' );
 
-		$message = _x( "You don't have permission to edit page keys.", 'Settings error message', 'page-keys' );
+		$message = _x( 'You don\'t have permission to edit page keys.', 'Settings error message', 'page-keys' );
 		$this->set_message( $message );
 	}
 

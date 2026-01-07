@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 
 namespace tf\PageKeys\Models;
 
@@ -37,7 +37,7 @@ class TextDomain {
 	 */
 	public function load() {
 
-		return load_plugin_textdomain( $this->domain, FALSE, $this->path );
+		return load_plugin_textdomain( $this->domain, false, $this->path );
 	}
 
 }
