@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Page Keys
  * Plugin URI:  https://wordpress.org/plugins/page-keys/
- * Description: Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.
+ * Description: Register page keys, assign WordPress pages to them, and access each of these pages by its individual key.
  * Author:      Thorsten Frommen
  * Author URI:  https://tfrommen.de
  * Version:     1.3.4

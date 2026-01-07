@@ -2,16 +2,16 @@
 Contributors: tfrommen
 Tags: page, pages, keys
 Requires at least: 3.5.0
-Tested up to: 6.8.1
-Stable tag: trunk
+Tested up to: 6.9
+Stable tag: 1.3.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.
+Register page keys, assign WordPress pages to them, and access each of these pages by its individual key.
 
 == Description ==
 
-**Register page keys, assign actual WordPress pages to them, and access each of these pages by its individual key.**
+**Register page keys, assign WordPress pages to them, and access each of these pages by its individual key.**
 
 Have you ever wanted to access a specific page from inside a template file? Of course, you could query it by its title. But what if someone wanted to rename the page? Okay, so we choose the slug. But maybe that someone also thought editing the slug as well to make it fit the new title was a very good idea. Yes, I know, it is not. But that someone either didn't know, or didn't care. Okay, so let's use the page ID. Oh, wait, now that someone, _by mistake_, permanently deleted that page. After having visited the frontend that someone created a new page, with the exact same title and the exact same slug as the original page. But that damn page still won't show.
 
@@ -88,6 +88,10 @@ This plugin requires PHP 5.3.
 1. **Settings page** - Here you can manage your page keys (i.e., add, edit, delete).
 
 == Changelog ==
+
+= 1.3.4 =
+* Fix security issue.
+* Compatible up to WordPress 6.9.
 
 = 1.3.3 =
 * Fix warning message due to loading text domain too early.

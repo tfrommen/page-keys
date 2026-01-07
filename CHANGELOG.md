@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4
+- Fix security issue.
+- Compatible up to WordPress 6.9.
+
 ## 1.3.3
 - Fix warning message due to loading text domain too early.
 - Compatible up to WordPress 6.8.1.
